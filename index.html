@@ -28,6 +28,7 @@
   <p>Paste your content below and click the "Sort" button:</p>
   <textarea id="input"></textarea>
   <button id="sortButton">Sort</button>
+  <button id="resetButton">Reset</button>
   <h2>Sorted Lines:</h2>
   <pre id="output"></pre>
   <button id="copyButton">Copy</button>
@@ -36,6 +37,7 @@
     const sortButton = document.getElementById('sortButton');
     const inputTextarea = document.getElementById('input');
     const outputPre = document.getElementById('output');
+    const resetButton = document.getElementById('resetButton');
     const copyButton = document.getElementById('copyButton');
 
     sortButton.addEventListener('click', () => {
@@ -43,6 +45,11 @@
       lines.sort((a, b) => a.length - b.length);
 
       outputPre.textContent = lines.join('\n');
+    });
+    
+    resetButton.addEventListener('click', () => {
+      inputTextarea.value = '';
+      outputPre.textContent = '';
     });
 
     copyButton.addEventListener('click', () => {
